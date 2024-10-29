@@ -10,14 +10,14 @@
 Predicting Amazon review scores is valuable for understanding customer sentiment and improving product recommendations. Accurate predictions support users in decision-making and aid businesses in enhancing product offerings.
 
 **Objective**:  
-This project aims to predict star ratings for Amazon Movie Reviews using structured metadata and textual features from `train.csv` and `test.csv`. `train.csv` contains over 1.7 million unique reviews, while `test.csv` provides Ids for prediction.
+This project aims to predict star ratings for Amazon Movie Reviews using structured metadata and textual features from `train.csv`. `train.csv` contains over 1.7 million unique reviews, while `test.csv` provides Ids for prediction.
 
 ---
 
 ## Data Exploration and Preprocessing
 
 **Exploratory Analysis**:  
-An initial exploration of `train.csv` revealed a skewed distribution of star ratings, with some values more frequent than others. Several fields, such as `HelpfulnessNumerator` and `HelpfulnessDenominator`, required handling due to missing or zero values.
+An initial exploration of `train.csv` revealed a skewed distribution of star ratings, with some values more frequent than others. Several fields, such as `HelpfulnessNumerator` and `HelpfulnessDenominator`, and `Score` required handling due to missing or zero values.
 
 **Feature Engineering Details**:
 - **Helpfulness Ratio**: Calculated as the ratio of `HelpfulnessNumerator` to `HelpfulnessDenominator`, representing the feedback quality of reviews. High ratios may correlate with more accurate review sentiments.
@@ -37,21 +37,19 @@ We evaluated several models, including provided K-Nearest Neighbors (KNN), Linea
    - **Support Vector Machine**: Capable of non-linear data handling but resource-intensive.
 
 **Training and Evaluation**:  
-A subset of `train.csv` served as a validation set to test model performance. Random Forest achieved the highest accuracy among baseline models, benefiting from its ensemble structure. On the full dataset, Random Forest’s accuracy decreased to approximately 0.53 ± 2, suggesting a need for tuning.
-
-**Performance Summary**:  
-The Random Forest model performed the best initially but showed signs of overfitting when extended to the full dataset. Further adjustments and parameter tuning may help address this.
+A subset of `train.csv` served as a validation set to test baseline model performance. Random Forest achieved the highest accuracy among baseline models, benefiting from its ensemble structure. On the full dataset, Random Forest’s accuracy decreased to approximately 0.55, suggesting a need for tuning or increasing complexity.
 
 ---
 
 ## Hyperparameter Tuning
 
 **TF-IDF Tuning**:  
-Limiting TF-IDF features to 50 and applying SVD to reduce dimensionality minimized overfitting and improved computational efficiency.
+The maximum number of TF-IDF features increased from 50 to 100, and SVD can keep 35 dimensions after reduction. In this case, the model can maintain more information for `Summary` and `Text`.
 
 **Random Forest Tuning**:  
-Adjusting the number of trees and maximum depth helped balance accuracy and efficiency, with an optimal setup that prevents overfitting without sacrificing performance.
+Adjusting the number of trees and maximum depth helped balance accuracy and efficiency, resulting in an optimal setup that prevents overfitting without sacrificing performance.
 
+Unfortunately, the random forest classifier model still has an accuracy of 0.53 ± 2 after the adjustment. Therefore, either the model is limited, or the critical data pattern is not captured during the feature engineering process.
 ---
 
 ## Results and Future Improvements
@@ -62,10 +60,8 @@ Final Random Forest model accuracy reached around 0.53 ± 2, demonstrating accep
 **Future Directions**:  
 Future enhancements include:
    - **Sentiment Analysis**: Adding a `Sentiment` feature to extract review mood (positive, neutral, or negative) to reduce data dimensionality, allowing for more complex models within Colab’s free tier memory limits.
-   - **Advanced Feature Engineering**: Integrating embeddings (e.g., Word2Vec or BERT) for a deeper semantic understanding of review text.
    - **Ensemble Models**: Exploring stacking and blending methods, such as Gradient Boosting with Random Forest, to combine model strengths.
    - **Hyperparameter Optimization**: Leveraging grid search for finer hyperparameter adjustments.
 
+With the limited RAM in Colab and deep learning model usage, capturing meaningful patterns between data and features becomes difficult and essential to improving the model's accuracy.
 ---
-
-This expanded approach addresses dimensionality challenges and computational constraints, providing a foundation for future improvements in accuracy and resource efficiency.
