@@ -59,11 +59,10 @@ Unfortunately, the random forest classifier model still has an accuracy of 0.53 
 Final Random Forest model accuracy reached around 0.53 ± 2, demonstrating acceptable but improvable performance across structured and textual data.
 
 **Future Directions**:  
-Future enhancements include:
-   - **Sentiment Analysis**: Adding a `Sentiment` feature to extract review mood (positive, neutral, or negative) to reduce data dimensionality, allowing for more complex models within Colab’s free tier memory limits.
+   - **Sentiment Analysis**: Introducing a `Sentiment` feature to categorize reviews as positive, neutral, or negative could reduce data complexity by removing the need for full TF-IDF and SVD processing. This streamlined approach would allow for using more complex models within Colab’s free-tier memory limits.
    - **Ensemble Models**: Exploring stacking and blending methods, such as Gradient Boosting with Random Forest, to combine model strengths.
-   - **Hyperparameter Optimization**: Leveraging grid search for finer hyperparameter adjustments.
+   - **Hyperparameter Optimization**: Leveraging grid search for finer hyperparameter adjustments. (Exceeded RAM for Colab)
 
-With the limited RAM in Colab and deep learning model usage, capturing meaningful patterns between data and features becomes difficult and essential to improving the model's accuracy.
+With the limitation of RAM in Colab and the constraint usage of deep learning models, capturing meaningful patterns between features and target data becomes challenging yet essential for enhancing model accuracy. 
 
 ---
