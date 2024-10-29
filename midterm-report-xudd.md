@@ -37,7 +37,15 @@ We evaluated several models, including provided K-Nearest Neighbors (KNN), Linea
    - **Support Vector Machine**: Capable of non-linear data handling but resource-intensive.
 
 **Training and Evaluation**:  
-A subset of `train.csv` served as a validation set to test baseline model performance. Random Forest achieved the highest accuracy among baseline models, benefiting from its ensemble structure. On the full dataset, Random Forest’s accuracy decreased to approximately 0.55, suggesting a need for tuning or increasing complexity.
+
+| Model                     | Accuracy |
+|---------------------------|----------|
+| K-Nearest Neighbors (KNN) | 0.48     |
+| Linear Regression         | 0.55     |
+| Random Forest Validation  | 0.65     |
+| Support Vector Machine    | 0.65     |
+
+A subset of `train.csv` served as a validation set to test baseline model performance. SVM and Random Forest both achieved the highest accuracy among baseline models. However, Random Forest is chosen because SVM’s complexity increases with data size and the choice of kernel; for example, non-linear kernels like RBF require substantial computation to map data into higher dimensions. In text-heavy datasets, where each feature represents word frequencies or embeddings, SVM struggles with memory and speed, making it less feasible for large datasets in resource-limited environments. Alternative models like Random Forest may handle such high-dimensional spaces more efficiently. Random Forest is an updated vision of a single decision tree by building an ensemble of many trees. Each tree is trained on a different random subset of the data and features, making the ensemble more robust and less likely to overfit. On the full dataset, Random Forest’s accuracy decreased to approximately 0.55, suggesting a need for tuning or increasing complexity.
 
 ---
 
@@ -47,7 +55,7 @@ A subset of `train.csv` served as a validation set to test baseline model perfor
 The maximum number of TF-IDF features increased from 50 to 100, and SVD can keep 35 dimensions after reduction. In this case, the model can maintain more information for `Summary` and `Text`.
 
 **Random Forest Tuning**:  
-Adjusting the number of trees and maximum depth helped balance accuracy and efficiency, resulting in an optimal setup that prevents overfitting without sacrificing performance.
+Adjusting the number of trees and maximum depth helped balance accuracy and efficiency, resulting in an optimal setup that prevents overfitting without sacrificing performance. Increasing the number of trees or the depth can enhance accuracy but also increase memory usage and training time, especially in limited environments like Colab. As a result, balancing model complexity and computational limits is crucial, as excessive tuning may lead to diminishing returns without significant performance gains
 
 Unfortunately, the random forest classifier model still has an accuracy of 0.53 ± 2 after the adjustment. Therefore, either the model is limited, or the critical data pattern is not captured during the feature engineering process.
 
@@ -59,8 +67,8 @@ Unfortunately, the random forest classifier model still has an accuracy of 0.53 
 Final Random Forest model accuracy reached around 0.53 ± 2, demonstrating acceptable but improvable performance across structured and textual data.
 
 **Future Directions**:  
-   - **Sentiment Analysis**: Introducing a `Sentiment` feature to categorize reviews as positive, neutral, or negative could reduce data complexity by removing the need for full TF-IDF and SVD processing. This streamlined approach would allow for using more complex models within Colab’s free-tier memory limits.
-   - **Ensemble Models**: Exploring stacking and blending methods, such as Gradient Boosting with Random Forest, to combine model strengths.
+   - **Sentiment Analysis**: Introducing a `Sentiment` feature to categorize reviews as positive, neutral, or negative could potentially reduce data complexity by removing the need for full TF-IDF and SVD processing as not all the TF-IDF features are to predict the specific `Score`. This streamlined approach would allow for using more complex models within Colab’s free-tier memory limits.
+   - **Ensemble Models**: Exploring stacking and blending methods, such as Gradient Boosting with Random Forest, to combine model strengths. Gradient Boosting builds sequential trees, where each tree corrects the errors of the previous one, effectively handling complex patterns. This method often achieves high accuracy, though it requires careful tuning to avoid overfitting.
    - **Hyperparameter Optimization**: Leveraging grid search for finer hyperparameter adjustments. (Exceeded RAM for Colab)
 
 With the limitation of RAM in Colab and the constraint usage of deep learning models, capturing meaningful patterns between features and target data becomes challenging yet essential for enhancing model accuracy. 
