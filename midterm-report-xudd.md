@@ -1,8 +1,8 @@
 # Midterm Report: Amazon Movie Review Score Prediction
 
-**Duoduo Xu**  
-**CS506-A1**  
-**2024/10/28**
+**Contributor: Duoduo Xu**  
+**Class: CS506-A1**  
+**Date: 2024/10/28**
 
 ## Introduction and Objective
 
