@@ -55,7 +55,7 @@ A subset of `train.csv` served as a validation set to test baseline model perfor
 The maximum number of TF-IDF features increased from 50 to 100, and SVD can keep 35 dimensions after reduction. In this case, the model can maintain more information for `Summary` and `Text`.
 
 **Random Forest Tuning**:  
-Adjusting the number of trees and maximum depth helped balance accuracy and efficiency, resulting in an optimal setup that prevents overfitting without sacrificing performance. Increasing the number of trees or the depth can enhance accuracy but also increase memory usage and training time, especially in limited environments like Colab. As a result, balancing model complexity and computational limits is crucial, as excessive tuning may lead to diminishing returns without significant performance gains
+Increasing the number of trees or the depth can enhance accuracy but also increase memory usage and training time, especially in limited environments like Colab. As a result, balancing model complexity and computational limits is crucial, as excessive tuning may lead to diminishing returns without significant performance gains.
 
 Unfortunately, the random forest classifier model still has an accuracy of 0.53 ± 2 after the adjustment. Therefore, either the model is limited, or the critical data pattern is not captured during the feature engineering process.
 
