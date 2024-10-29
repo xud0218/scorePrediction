@@ -50,6 +50,7 @@ The maximum number of TF-IDF features increased from 50 to 100, and SVD can keep
 Adjusting the number of trees and maximum depth helped balance accuracy and efficiency, resulting in an optimal setup that prevents overfitting without sacrificing performance.
 
 Unfortunately, the random forest classifier model still has an accuracy of 0.53 ± 2 after the adjustment. Therefore, either the model is limited, or the critical data pattern is not captured during the feature engineering process.
+
 ---
 
 ## Results and Future Improvements
@@ -64,4 +65,5 @@ Future enhancements include:
    - **Hyperparameter Optimization**: Leveraging grid search for finer hyperparameter adjustments.
 
 With the limited RAM in Colab and deep learning model usage, capturing meaningful patterns between data and features becomes difficult and essential to improving the model's accuracy.
+
 ---
