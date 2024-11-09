@@ -63,14 +63,27 @@ Unfortunately, the random forest classifier model still has an accuracy of 0.53 
 
 ## Results and Future Improvements
 
-**Result Summary**:  
-Final Random Forest model accuracy reached around 0.53 ± 2, demonstrating acceptable but improvable performance across structured and textual data.
+**Result Summary**  
+The final Random Forest model achieved an accuracy of approximately 0.53 ± 2, indicating acceptable but improvable performance on both structured and textual data.
 
-**Future Directions**:  
-   - **Sentiment Analysis**: Introducing a `Sentiment` feature to categorize reviews as positive, neutral, or negative could reduce data complexity by decreasing reliance on the full TF-IDF and SVD process, as not all TF-IDF features contribute to predicting the review score. This streamlined approach allows for using more complex models within Colab’s free-tier memory limits and provides a clearer signal of customer satisfaction by capturing sentiment directly, beyond what word frequency alone can indicate.
-   - **Ensemble Models**: Exploring stacking and blending methods, such as Gradient Boosting with Random Forest, to combine model strengths. Gradient Boosting builds sequential trees, where each tree corrects the errors of the previous one, effectively handling complex patterns. This method often achieves high accuracy, though it requires careful tuning to avoid overfitting.
-   - **Hyperparameter Optimization**: Leveraging grid search for finer hyperparameter adjustments. (Exceeded RAM for Colab)
+**Future Directions**  
+1. **Sentiment Feature Addition**: Introducing a sentiment analysis feature to categorize reviews as positive, neutral, or negative could streamline the TF-IDF process. By capturing sentiment directly, this approach may reduce reliance on high-dimensional TF-IDF features, improve accuracy, and better reflect customer satisfaction.
 
-With the limitation of RAM in Colab and the constraint usage of deep learning models, capturing meaningful patterns between features and target data becomes challenging yet essential for enhancing model accuracy. 
+2. **Ensemble and Boosting Models**: To leverage model strengths, stacking and blending methods, such as combining Random Forest with Gradient Boosting, could be explored. These ensemble approaches may capture more nuanced data patterns and increase predictive power.
+
+3. **Hyperparameter Optimization on Larger Platforms**: Using a platform with more computational resources would allow for a more thorough hyperparameter tuning process. This includes testing a wider range of TF-IDF and SVD configurations, which could improve the model's handling of review text.
+
+
+## Comparison to Kaggle Score
+
+**Kaggle Score Achievement**  
+The final Random Forest model on Kaggle achieved a score of **0.53791** out of 1, reflecting that while the model captures general trends in the data, it struggles with the finer distinctions required for high accuracy in star rating prediction.
+
+**Analysis of Score Limitation**  
+The Kaggle score highlights limitations in feature engineering and model capacity for high-dimensional textual data, with the following key challenges:
+
+1. **Feature Engineering**: While helpful ratios, date extractions, and TF-IDF features were used, additional features targeting sentiment (e.g., a polarity score) could capture the emotional tone of reviews more directly, potentially improving accuracy.
+
+2.**Model Complexity and Computational Constraints**: Colab’s limited resources restricted extensive parameter tuning. To address this, exploring more expressive models or boosting techniques could improve performance, especially for complex, non-linear relationships in text data.
 
 ---
