@@ -77,13 +77,13 @@ The final Random Forest model achieved an accuracy of approximately 0.53 ± 2, i
 ## Comparison to Kaggle Score
 
 **Kaggle Score Achievement**  
-The final Random Forest model on Kaggle achieved a score of **0.53791** out of 1, reflecting that while the model captures general trends in the data, it struggles with the finer distinctions required for high accuracy in star rating prediction.
+The final Random Forest model on Kaggle achieved a score of **0.53791** out of 1, reflecting that while the model captures general trends in the data but struggles with the finer distinctions required for high accuracy in star rating prediction.
 
 **Analysis of Score Limitation**  
 The Kaggle score highlights limitations in feature engineering and model capacity for high-dimensional textual data, with the following key challenges:
 
 1. **Feature Engineering**: While helpful ratios, date extractions, and TF-IDF features were used, additional features targeting sentiment (e.g., a polarity score) could capture the emotional tone of reviews more directly, potentially improving accuracy.
 
-2.**Model Complexity and Computational Constraints**: Colab’s limited resources restricted extensive parameter tuning. To address this, exploring more expressive models or boosting techniques could improve performance, especially for complex, non-linear relationships in text data.
+2. **Model Selection**: Although Random Forest handled both structured and text features relatively well, exploring alternative models like Gradient Boosting or researching other **not deep learning** models before selecting the models could improve performance. These models may capture more complex patterns in textual data, which could be advantageous given the nuanced nature of review scores.
 
 ---
